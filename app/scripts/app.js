@@ -1,15 +1,14 @@
 'use strict';
 
-var app = angular.module("myApp", ['ngMaterial']);
+var app = angular.module("myApp", ['ngMaterial', 'ngMessages']);
 
 /*
-  les objets seront sous forme : {
-    list_label = "nom de la list",
-    label = ""
-  }
+ les objets seront sous forme : {
+ list_label = "nom de la list",
+ label = ""
+ }
 
  */
-
 
 app.controller("listCtrl", ['$scope', '$mdSidenav', 'firebaseService', function($scope, $mdSidenav, firebaseService){
   $scope.headerName = "Le nom dans le header";
@@ -38,7 +37,14 @@ app.controller("listCtrl", ['$scope', '$mdSidenav', 'firebaseService', function(
     });
   });
 
+
   $scope.send = function(){
-    
+
   };
-}]);
+}])
+
+.config(function($mdIconProvider) {
+  $mdIconProvider
+    .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
+    .defaultIconSet('img/icons/sets/core-icons.svg', 24);
+});
