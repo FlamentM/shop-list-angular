@@ -1,14 +1,12 @@
-#Documentation
+# shop-list-angular
 
-##Ajouter un icon 
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.12.1.
 
-Pour ajouter un icone, utiliser cette façon de faire
+## Build & development
 
-```
-<i class="md-secondary material-icons" ng-click="doSecondaryAction($event)">delete</i>
-```
+Run `grunt` for building and `grunt serve` for preview.
 
-La liste des icones est disponible ici : 
-<https://www.google.com/design/icons/>
+## Testing
 
-Il suffit de mettre le nom de l'icone en tant que text entre les balises `<i>ICI</i>`
+Running `grunt test` will run the unit tests with karma.
