@@ -1,0 +1,35 @@
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    <md-content layout-padding>
+        <md-list-item ng-repeat="label in listCtrl.listLabel" ng-class="{selected : label == listCtrl.currentList}" ng-click="listCtrl.changeCurrentList($event)">
+            <p>
+                {{ label }}
+            </p>
+        </md-list-item>
+    </md-content>
+</md-sidenav>
+
+<div layout="column" flex id="content">
+    <h2>{{listCtrl.currentList}}</h2>
+
+    <md-content layout="column" flex class="md-padding">
+        <section >
+            <form name="productForm" ng-submit="listCtrl.addProduct()">
+                <md-input-container>
+                    <label>Produit à ajouter</label>
+                    <input md-maxlength="30" name="description" ng-model="listCtrl.productToAdd">
+                    <div ng-messages="productForm.description.$error">
+                        <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                    </div>
+                </md-input-container>
+
+                <input type="submit" class="hide"/>
+            </form>
+
+
+            <md-list-item ng-repeat="product in listCtrl.list | filter:{parentList : listCtrl.currentList}">
+                <p>{{ ::product.label }}</p>
+                <i class="md-secondary material-icons delete-icon" aria-label="supprimer" ng-click="listCtrl.removeProduct(product)">delete</i>
+            </md-list-item>
+        </section>
+    </md-content>
+</div>

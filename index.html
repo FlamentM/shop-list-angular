@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" class="no-js">
+<head>
+  <meta charset="iso-8859-1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title  ng-bind="'Shop list &mdash; ' + title">My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body layout="column" ng-controller="MenuCtrl as menuCtrl">
+  <md-toolbar layout="row">
+    <div class="md-toolbar-tools">
+      <md-button ng-click="menuCtrl.toggleSidenav('left')" hide-gt-sm class="md-icon-button">
+        <md-icon aria-label="Menu" md-svg-icon="https://s3-us-west-2.amazonaws.com/s.cdpn.io/68133/menu.svg"></md-icon>
+      </md-button>
+
+      <h1 ng-bind="title"></h1>
+
+      <ul class="main-menu">
+        <li ng-repeat="menuLink in menuCtrl.mainMenu">
+          <a href="#{{menuLink.href}}" ng-class="{selected:menuCtrl.isCurrentPath(menuLink)}">{{menuLink.title}}</a>
+        </li>
+      </ul>
+    </div>
+  </md-toolbar>
+
+  <div ng-view layout="row" ng-style="{height:'100%'}"></div>
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/firebase/firebase.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="app.js"></script>
+  <script src="menu_ctrl.js"></script>
+  <script src="firebase.js"></script>
+  <script src="view-shop-list/shop-list.js"></script>
+  <script src="view-marmitton/marmitton.js"></script>
+</body>
+</html>
