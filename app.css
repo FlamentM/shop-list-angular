@@ -75,3 +75,47 @@ h2{
 [x-ng-click] {
     cursor: pointer;
 }
+
+.presentation{
+    padding: 1em;
+}
+
+.presentation h2{
+    padding-left: 0;
+    padding-top: 0;
+}
+
+.marmitton-sniffer{
+    text-decoration: none;
+    color: black;
+    display: block;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    background-color: #3F51B5;
+    padding: 3em;
+    box-sizing: border-box;
+    border-radius: 1em;
+    box-shadow: 2px 2px 6px #424040;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+}
+
+.marmitton-sniffer:after{
+    content : 'Met moi dans tes favoris !';
+    position: absolute;
+    display: block;
+    font-size:.8em;
+    bottom:-2em;
+    left:50%;
+    width: 14em;
+    margin-left: -7em;
+    text-align: center;
+    color:red;
+    font-weight: bold;
+}
+
+.marmitton-sniffer span{
+    font-size: 3em;
+    color: #fff;
+}

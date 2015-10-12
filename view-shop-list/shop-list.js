@@ -10,7 +10,7 @@ angular.module('app.shop-list', ['app.firebase-services'])
             "All",
             "Others",
             "Fruits",
-            "LÃ©gumes"
+            "Légumes"
         ];
         listCtrl.currentList = "Others";
 
@@ -27,7 +27,7 @@ angular.module('app.shop-list', ['app.firebase-services'])
             });
         });
 
-        // fonction appellÃ©e pour chaque Ã©lÃ©ment ajouter, y compris l'initialisation
+        // fonction appellée pour chaque élément ajouter, y compris l'initialisation
         firebaseService.setRemoveFunction(function(snapshot){
             var obj = snapshot.val();
 
