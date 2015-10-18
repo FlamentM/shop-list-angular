@@ -25,8 +25,7 @@
                 <input type="submit" class="hide"/>
             </form>
 
-
-            <md-list-item ng-repeat="product in listCtrl.list | filter:{parentList : listCtrl.currentList}">
+            <md-list-item ng-repeat="product in listCtrl.list | shopListFilter:listCtrl.currentList">
                 <p>{{ ::product.label }}</p>
                 <i class="md-secondary material-icons delete-icon" aria-label="supprimer" ng-click="listCtrl.removeProduct(product)">delete</i>
             </md-list-item>

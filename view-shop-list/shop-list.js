@@ -18,8 +18,8 @@ angular.module('app.shop-list', ['app.firebase-services'])
             var obj = snapshot.val();
             listCtrl.list.push({
                 label : obj.label,
-                    parentList : obj.parentList,
-                    id : snapshot.key()
+                parentList : obj.parentList,
+                id : snapshot.key()
             });
 
             $timeout(function(){
@@ -47,6 +47,7 @@ angular.module('app.shop-list', ['app.firebase-services'])
 
         listCtrl.changeCurrentList = function($event){
             listCtrl.currentList = $event.target.innerText;
+            listCtrl.toggleSidenav('left');
         };
 
         listCtrl.addProduct = function(){
@@ -59,6 +60,13 @@ angular.module('app.shop-list', ['app.firebase-services'])
 
         listCtrl.removeProduct = function(product){
             firebaseService.remove(product);
+        };
+    })
+    .filter('shopListFilter', function () {
+        return function (items, currentList) {
+            return items.filter(function(item){
+                return (currentList.toLowerCase() == 'all' || item.parentList == currentList);
+            });
         };
     });
 
