@@ -18,8 +18,8 @@ angular.module('app.shop-list', ['app.firebase-services'])
             var obj = snapshot.val();
             listCtrl.list.push({
                 label : obj.label,
-                parentList : obj.parentList,
-                id : snapshot.key()
+                    parentList : obj.parentList,
+                    id : snapshot.key()
             });
 
             $timeout(function(){
