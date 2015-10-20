@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('app.shop-list', ['app.firebase-services'])
-    .controller('ShopListController', function ($mdSidenav, $filter, $scope, $timeout, firebaseService) {
+    .controller('ShopListController', function ($mdSidenav, $filter, $scope, $timeout, firebaseService, $location) {
+        if(firebaseService.getUser() === undefined)
+            $location.path("/auth");
+
         var listCtrl = this;
 
         // DECLARATION DES VARIABLES

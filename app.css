@@ -119,3 +119,34 @@ h2{
     font-size: 3em;
     color: #fff;
 }
+
+.login-form{
+    width: 30em;
+    margin: 0 auto;
+    padding: 2em;
+    border:1px solid lightgray;
+    border-radius:1em;
+    height: 25em;
+    background-color: white;
+}
+
+.login-form i{
+    margin: auto;
+    background-repeat: no-repeat no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    height: 24px;
+    width: 24px;
+    position: absolute;
+    top: 26px;
+    left: 2px;
+}
+
+.login-form input{
+    padding-left: 2em;
+}
+
+.auth-body{
+    background: url('http://previews.123rf.com/images/kentoh/kentoh1005/kentoh100500735/7028017-Spices-and-Herbs-Cooking-List-Abstract-Background-Stock-Photo.jpg');
+
+}

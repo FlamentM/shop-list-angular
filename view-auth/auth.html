@@ -1,0 +1,43 @@
+<div layout="row" layout-align="space-around center" style="width:100%" class="auth-body">
+    <form layout="column" class="login-form" ng-cloak ng-submit="authCtrl.connexionFun()">
+        <h2 class="md-display-1">Connexion</h2>
+        <br/>
+        <md-content layout-padding class="autoScroll">
+            <md-input-container >
+                <!-- Use floating placeholder instead of label -->
+                <i class="md-secondary material-icons delete-icon">email</i>
+                <input ng-model="authCtrl.connexion.email" type="email" placeholder="Email (required)" ng-required="true" autofocus>
+            </md-input-container>
+
+            <md-input-container class="md-icon-float">
+                <!-- Use floating label instead of placeholder -->
+                <label>Password</label>
+                <i class="md-secondary material-icons delete-icon">person</i>
+                <input ng-model="authCtrl.connexion.password" ng-required="true" type="password">
+            </md-input-container>
+        </md-content>
+
+        <md-button class="md-raised md-primary">Connexion</md-button>
+    </form>
+
+    <form layout="column" class="login-form" ng-cloak ng-submit="authCtrl.inscriptionFun()">
+        <h2 class="md-display-1">Inscription</h2>
+        <br/>
+        <md-content layout-padding class="autoScroll">
+            <md-input-container >
+                <!-- Use floating placeholder instead of label -->
+                <i class="md-secondary material-icons delete-icon">email</i>
+                <input ng-model="authCtrl.inscription.email" type="email" placeholder="Email (required)" ng-required="true">
+            </md-input-container>
+
+            <md-input-container class="md-icon-float">
+                <!-- Use floating label instead of placeholder -->
+                <label>Password</label>
+                <i class="md-secondary material-icons delete-icon">person</i>
+                <input ng-model="authCtrl.inscription.password" ng-required="true" type="password">
+            </md-input-container>
+        </md-content>
+
+        <md-button class="md-raised md-primary">Créer mon compte</md-button>
+    </form>
+</div>

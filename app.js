@@ -4,12 +4,21 @@ angular.module('app', [
     'ngRoute',
     'ngMaterial',
     'ngMessages',
+    'app.firebase-services',
     'app.menu-controller',
     'app.marmitton',
-    'app.shop-list'
+    'app.shop-list',
+    'app.auth'
 ])
 
 .config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when('/auth', {
+        title: 'Authentification',
+        templateUrl: 'view-auth/auth.html',
+        controller: 'AuthController',
+        controllerAs: 'authCtrl'
+    });
+
     $routeProvider.when('/shop_list', {
         title: 'Liste',
         templateUrl: 'view-shop-list/shop-list.html',
@@ -24,7 +33,7 @@ angular.module('app', [
         controllerAs: 'marmittonCtrl'
     });
 
-    $routeProvider.otherwise({redirectTo: '/shop_list'});
+    $routeProvider.otherwise({redirectTo: '/auth'});
 }])
 
 
