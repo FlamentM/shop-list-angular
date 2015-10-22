@@ -1,4 +1,4 @@
-<div layout="row" layout-align="space-around center" style="width:100%" class="auth-body">
+<div layout="row" layout-align="space-around center" class="auth-body">
     <form layout="column" class="login-form" ng-cloak ng-submit="authCtrl.connexionFun()">
         <h2 class="md-display-1">Connexion</h2>
         <br/>
@@ -6,7 +6,7 @@
             <md-input-container >
                 <!-- Use floating placeholder instead of label -->
                 <i class="md-secondary material-icons delete-icon">email</i>
-                <input ng-model="authCtrl.connexion.email" type="email" placeholder="Email (required)" ng-required="true" autofocus>
+                <input ng-model="authCtrl.connexion.email" type="email" placeholder="Email" autofocus>
             </md-input-container>
 
             <md-input-container class="md-icon-float">
@@ -27,7 +27,7 @@
             <md-input-container >
                 <!-- Use floating placeholder instead of label -->
                 <i class="md-secondary material-icons delete-icon">email</i>
-                <input ng-model="authCtrl.inscription.email" type="email" placeholder="Email (required)" ng-required="true">
+                <input ng-model="authCtrl.inscription.email" type="email" placeholder="Email">
             </md-input-container>
 
             <md-input-container class="md-icon-float">

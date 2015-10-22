@@ -1,22 +1,103 @@
 <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    <h6>{{listCtrl.user.password.email}}</h6>
+    <h4>Mes listes</h4>
+
     <md-content layout-padding>
-        <md-list-item ng-repeat="label in listCtrl.listLabel" ng-class="{selected : label == listCtrl.currentList}" ng-click="listCtrl.changeCurrentList($event)">
+        <md-list-item ng-repeat="list in listCtrl.lists" ng-class="{selected : list == listCtrl.currentList}" ng-click="listCtrl.changeCurrentList(list)">
             <p>
-                {{ label }}
+                {{ list.list_name }}
             </p>
+            <!--
+            <div class="actions">
+                <i class="md-secondary material-icons delete-icon" aria-label="supprimer" ng-click="listCtrl.removeList(list)">delete</i>
+                <i class="md-secondary material-icons share-icon" aria-label="share" ng-click="listCtrl.addList(list)">share</i>
+            </div>-->
+
+
+            <md-icon ng-style="{color: ''}"
+                     aria-label="delete"
+                     class="material-icons step delete-icon"
+                     ng-class="md-24"
+                     ng-click="listCtrl.removeList(list)">
+                delete
+            </md-icon>
+
+            <md-icon ng-style="{color: ''}"
+                     aria-label="share"
+                     class="material-icons step share-icon"
+                     ng-class="md-24"
+                     ng-click="listCtrl.shareList(list)">
+                share
+            </md-icon>
+        </md-list-item>
+    </md-content>
+
+    <form layout="column" class="add-list" ng-cloak ng-submit="listCtrl.addList()">
+        <br/>
+        <md-content layout-padding>
+            <md-input-container >
+                <input ng-model="listCtrl.listToAdd" type="text" placeholder="Nom de la liste">
+            </md-input-container>
+        </md-content>
+
+        <md-button class="md-raised md-primary">Ajouter une liste</md-button>
+    </form>
+
+    <md-divider></md-divider>
+
+
+
+    <h4>On m'a partagé</h4>
+
+    <md-content layout-padding>
+        <md-list-item ng-repeat="list in listCtrl.shared_lists" ng-class="{selected : list == listCtrl.currentList}" ng-click="listCtrl.changeCurrentList(list)">
+            <p>
+                {{ list.list_name }}
+            </p>
+            <!--
+            <div class="actions">
+                <i class="md-secondary material-icons delete-icon" aria-label="supprimer" ng-click="listCtrl.removeList(list)">delete</i>
+                <i class="md-secondary material-icons share-icon" aria-label="share" ng-click="listCtrl.addList(list)">share</i>
+            </div>-->
+
+
+            <md-icon ng-style="{color: ''}"
+                     aria-label="delete"
+                     class="material-icons step delete-icon"
+                     ng-class="md-24"
+                     ng-click="listCtrl.removeList(list)">
+                delete
+            </md-icon>
+
+            <md-icon ng-style="{color: ''}"
+                     aria-label="share"
+                     class="material-icons step share-icon"
+                     ng-class="md-24"
+                     ng-click="listCtrl.shareList(list)">
+                share
+            </md-icon>
         </md-list-item>
     </md-content>
 </md-sidenav>
 
+
+
+
+
+
+
+
+
+
 <div layout="column" flex id="content">
-    <h2>{{listCtrl.currentList}}</h2>
+    <h2>{{listCtrl.currentList.list_name}}</h2>
 
     <md-content layout="column" flex class="md-padding">
         <section >
             <form name="productForm" ng-submit="listCtrl.addProduct()">
                 <md-input-container>
                     <label>Produit à ajouter</label>
-                    <input md-maxlength="30" name="description" ng-model="listCtrl.productToAdd">
+                    <input id="product-to-add" md-maxlength="30" name="description" ng-model="listCtrl.productToAdd">
                     <div ng-messages="productForm.description.$error">
                         <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
                     </div>
@@ -25,9 +106,9 @@
                 <input type="submit" class="hide"/>
             </form>
 
-            <md-list-item ng-repeat="product in listCtrl.list | shopListFilter:listCtrl.currentList">
-                <p>{{ ::product.label }}</p>
-                <i class="md-secondary material-icons delete-icon" aria-label="supprimer" ng-click="listCtrl.removeProduct(product)">delete</i>
+            <md-list-item ng-repeat="item in listCtrl.currentList.items">
+                <p>{{ item.label }}</p>
+                <i class="md-secondary material-icons delete-icon" aria-label="supprimer" ng-click="listCtrl.removeItem(item)">delete</i>
             </md-list-item>
         </section>
     </md-content>

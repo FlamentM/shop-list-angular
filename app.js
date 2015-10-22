@@ -44,6 +44,7 @@ angular.module('app', [
 }])
 
 .constant("mainMenu",[
-    {href: "/shop_list", title: "Liste de produits"},
-    {href: "/marmitton", title: "Via marmitton"}
+    {href: "/shop_list", title: "Liste de produits"}
+//    {href: "/marmitton", title: "Via marmitton"}
 ]);
+

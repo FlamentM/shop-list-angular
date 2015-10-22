@@ -69,6 +69,9 @@ h2{
 .delete-icon:hover{
     color: #d40000;
 }
+.share-icon:hover{
+    color: #3f51b5;
+}
 
 [ng-click],
 [data-ng-click],
@@ -146,7 +149,28 @@ h2{
     padding-left: 2em;
 }
 
-.auth-body{
-    background: url('http://previews.123rf.com/images/kentoh/kentoh1005/kentoh100500735/7028017-Spices-and-Herbs-Cooking-List-Abstract-Background-Stock-Photo.jpg');
+.auth-body {
+    background-color: lightgrey;
+    width: 100%;
+}
 
+.add-list md-input-container.md-icon-float > label{
+    margin-left: 0;
+}
+
+h4, h6{
+    text-align: center;
+    color: #414141;
+}
+
+h2{
+    color: #414141;
+}
+
+.add-list{
+    margin-bottom: 1em;
+}
+
+md-divider {
+    border-top-color: rgba(47, 45, 45, 0.5);
 }
