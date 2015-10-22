@@ -4,8 +4,8 @@ angular.module('app.auth', ['app.firebase-services'])
     .controller('AuthController', function ($scope, $location, firebaseService) {
         var authCtrl = this;
         authCtrl.connexion = {
-            email : "flament.mickael@gmail.com",
-            password : "demo"
+            //email : "flament.mickael@gmail.com",
+            //password : "demo"
         };
         authCtrl.inscription = {};
 
