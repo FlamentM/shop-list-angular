@@ -60,7 +60,7 @@ angular.module('app.firebase-services', [])
                     value.forEach(function(list){
                         list.shared_with.forEach(function(id){
                             if(_this.user.uid == id){
-                                // l'objet ne contient qu'une clé, l'id de la liste
+                                // l'objet ne contient qu'une clï¿½, l'id de la liste
                                 list.uid = Object.keys(obj)[0];
                                 list.url = _this.base_url + snapshot.key() + '/' + Object.keys(obj)[0];
                                 _this.sharedFun(list);
@@ -180,6 +180,10 @@ angular.module('app.firebase-services', [])
                             console.log("Error creating user:", error);
                     }
                 } else {
+                    var conn = new Firebase('https://shop-list-eservices.firebaseio.com/emails_to_ids');
+                    var obj = {};
+                    obj[_this.emailToKey(email)] = userData.uid;
+                    conn.update(obj);
                     _this.userAuth(email, password, callBack);
                 }
             });

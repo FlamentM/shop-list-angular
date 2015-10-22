@@ -54,11 +54,13 @@ angular.module('app.shop-list', ['app.firebase-services'])
         firebaseService.setSharedFun(function(list){
             $scope.$applyAsync(function(){
                 var exist = false;
+                var isCurrentList = false;
 
                 for(var i = 0, il = listCtrl.shared_lists.length ; i < il ; i++){
                     if(listCtrl.shared_lists[i].list_name == list.list_name && list.items != listCtrl.shared_lists[i].items){
+                        isCurrentList = (listCtrl.shared_lists[i] == listCtrl.currentList);
                         listCtrl.shared_lists[i] = list;
-                        listCtrl.currentList = listCtrl.shared_lists[i];
+                        if(isCurrentList) listCtrl.currentList = listCtrl.shared_lists[i];
                         exist = true;
                         break;
                     }
@@ -136,18 +138,6 @@ angular.module('app.shop-list', ['app.firebase-services'])
             listCtrl.currentList.items.splice(listCtrl.currentList.items.indexOf(item), 1);
             firebaseService.updateList(listCtrl.currentList);
         };
-        /*
-        listCtrl.addProduct = function(){
-            firebaseService.push({
-                label : listCtrl.productToAdd.trim(),
-                parentList : listCtrl.currentList.trim()
-            });
-            listCtrl.productToAdd = '';
-        };
-
-        listCtrl.removeProduct = function(product){
-            firebaseService.remove(product);
-        };*/
     })
     .filter('shopListFilter', function () {
         return function (items, currentList) {
